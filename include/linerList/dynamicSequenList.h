@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * @brief
  * 动态顺序表
@@ -13,21 +15,21 @@ typedef struct
 } SeqList;
 // 初始化线性表
 void InitList(SeqList &L);
-// // 求表长
-// int Length(SqList L);
-// // Find By element
-// int LocateElem(SqList L, int e);
-// // Find by position
-// int GetElem(SqList L, int e);
-// // Insert a element at the position of i
-// bool ListInsert(SqList &L, int i, int e);
-// // Delete a element at the position of i after this action return the removed element
-// int ListDelete(SqList &L, int i, int e);
-// // Output operator
-// void PrintList(SqList L);
-// // Judge whether the liner list is empty
-// bool Empty(SqList L);
-// // Destroy the liner list
-// void DestroyList();
+// 求表长
+int Length(SeqList L);
+// Find By element
+int LocateElem(SeqList L, int e);
+// Find by position
+int GetElem(SeqList L, int i);
+// Insert a element at the position of i
+bool ListInsert(SeqList &L, int i, int e);
+// Delete a element at the position of i after this action return the removed element
+bool ListDelete(SeqList &L, int i, int &e);
+// Output operator
+void PrintList(SeqList L);
+// Judge whether the liner list is empty
+bool Empty(SeqList L);
+// Destroy the liner list
+void DestroyList(SeqList &L);
 // Increase the dynamic array length
 void IncreaseSize(SeqList &L, int len);

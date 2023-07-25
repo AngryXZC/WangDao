@@ -1,4 +1,4 @@
-#include "../../include/linerList/dynamicSequenList.h"
+#include "../../include/linerList/sequenList/dynamicSequenList.h"
 void InitList(SeqList &L)
 {
     L.data = (int *)malloc(InitSize * sizeof(int));

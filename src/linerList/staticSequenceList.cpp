@@ -1,4 +1,4 @@
-#include "../../include/linerList/staticSequenceList.h"
+#include "../../include/linerList/sequenList/staticSequenceList.h"
 // 初始化线性表
 void InitList(SqList &L)
 {
@@ -66,9 +66,13 @@ int Length(SqList L)
 }
 void PrintList(SqList L)
 {
+    if (L.length <= 0)
+    {
+        printf("This list is empty!");
+    }
     for (int i = 0; i < L.length; i++)
     {
-        printf("index if %d is %d", i + 1, L.data[i]);
+        printf("index of %d is %d \n", i + 1, L.data[i]);
     }
 }
 bool Empty(SqList L)

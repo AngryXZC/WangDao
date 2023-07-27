@@ -5,7 +5,7 @@
  * 静态顺序表
  *
  */
-#define MAXSIZE 10
+#define MAXSIZE 20
 typedef struct
 {
     int data[MAXSIZE];

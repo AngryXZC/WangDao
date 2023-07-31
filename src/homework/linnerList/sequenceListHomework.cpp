@@ -1,4 +1,5 @@
 #include "../../linerList/staticSequenceList.cpp"
+#include <string.h> //包含memset
 /**
  * @file sequenceListHomework.cpp
  * @author xzc (xingzhicheng@imudges.com)
@@ -281,6 +282,7 @@ bool merge(SqList LA, SqList LB, SqList &LC)
             LC.data[k++] = LB.data[j++];
         }
     }
+    // 这两个while只能有一个符合添加
     while (i < LA.length)
     {
         LC.data[k++] = LA.data[i++];
@@ -451,8 +453,102 @@ void sol_2_2_3_10()
 要求：
 1）给出算法的基本设计思想。
 2）根据设计思想，采用C或C＋＋或Java语言描述算法，关键之处给出注释。3）说明你所设计算法的时间复杂度和空间复杂度。
+TODO:归并排序的思路
 */
-// TODO
+void sol_2_2_3_11(SqList LA, SqList LB, SqList &LC, int &median)
+{
+    merge(LA, LB, LC);
+    median = LC.data[(0 + LC.length + 1) / 2];
+}
+
+/*
+12.【2013统考真题】已知一个整数序列A=(ao,a1,…,am-),其中0≤ai<n(0≤i<n)。
+若存在apl=ap2=…=apm=x且m>n/2(0≤pk<n,1≤k≤m),则称x为A的主元素。
+例如A=(0,5,5,3,5,7,5,5),则5为主元素；又如A=(0,5,5,3,5,1,5,7),则A中没有主元素。
+假设A中的个元素保存在一个一维数组中，请设计一个尽可能高效的算法，找出A的主元素。若存在主元素，则输出该元素；否则输出-1。
+要求：
+1)给出算法的基本设计思想。
+2)根据设计思想，采用C或C++或Java语言描述算法，关键之处给出注释。
+3)说明你所设计算法的时间复杂度和空间复杂度
+TODO先排序在统计的方法建议（搞完排序回来整）
+*/
+/*
+13.【2018统考真题】
+给定一个含n(n≥1)个整数的数组，请设计一个在时间上尽可能高效的算法，找出数组中未出现的最小正整数。例如，数组{-5,3,2,3}中未出现的最小正整数是1；数组{1,2,3}中未出现的最小正整数是4。
+ 要求：
+    1)给出算法的基本设计思想。
+    2)根据设计思想，采用C或C++语言描述算法，关键之处给出注释。
+    3)说明你所设计算法的时间复杂度和空间复杂度。
+*/
+int findMissMin(int A[], int n)
+{
+    // 前面是将n赋值为A数组中的max的操作
+    //  n是A数据中最大的整数
+    int i, *B;
+    B = (int *)malloc(sizeof(int) * n); // 标记数组分配空间
+    memset(B, 0, sizeof(int) * n);      // 付初始值赋为0
+    for (i = 0; i < n; i++)
+    {
+        if (A[i] > 0 && A[i] < n)
+        {
+            B[A[i] - 1] = 1;
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        if (B[i] == 0)
+        {
+            break;
+        }
+    }
+    return i + 1;
+}
+
+/*
+14.【2020统考真题】定义三元组(a,b,c)（a,b,c均为整数)的距离D=|a-b|+|b-c|+|c-a|。
+给定3个非空整数集合S1、S2和S3,按升序分别存储在3个数组中。
+请设计一个尽可能高效的算法，计算并输出所有可能的三元组(a,b,c)(a∈S1,b∈S2,c∈S3)中的最小距离。
+例如S1={-1,0,9},S2={-25,-10,10,11},S3={2,9,17,30,41},则最小距离为2，
+相应的三元组为(9,10,9)。
+要求：
+1)给出算法的基本设计思想。
+2)根据设计思想，采用C语言或者C++语言描述算法，关键之处给出注释。
+3）说明你说设计算法的时间复杂度和空间复杂度。
+*/
+#define INT_MAX 0x7FFFFFFF
+int abs_(int a)
+{
+    // 计算绝对值
+    if (a < 0)
+        return -a;
+    else
+        return a;
+}
+bool xls_min(int a, int b, int c)
+{
+    // a是否是三个数中的最小值
+    if (a <= b && a <= c)
+        return true;
+    return false;
+}
+int findMinOfTrip(int A[], int n, int B[], int m, int C[], int p)
+{
+    // D_min用于记录三元组最小记录，初始值赋为INT_MAX
+    int i = 0, j = 0, k = 0, D_min = INT_MAX, D;
+    while (i < n && j < m && k < p && D_min > 0)
+    {
+        D = abs_(A[i] - B[j]) + abs_(B[j] - C[k]) + abs_(C[k] - A[i]); // 计算D
+        if (D < D_min)
+            D_min = D; // 更新D
+        if (xls_min(A[i], B[j], C[k]))
+            i++; // 更新a
+        else if (xls_min(B[j], A[i], C[k]))
+            j++;
+        else
+            k++;
+    }
+    return D_min;
+}
 int main()
 {
     sol_2_2_3_10();

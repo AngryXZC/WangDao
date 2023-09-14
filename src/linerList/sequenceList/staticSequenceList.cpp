@@ -1,4 +1,4 @@
-#include "../../include/linerList/sequenList/staticSequenceList.h"
+#include "../../../include/linerList/sequenList/staticSequenceList.h"
 // 初始化线性表
 void InitList(SqList &L)
 {

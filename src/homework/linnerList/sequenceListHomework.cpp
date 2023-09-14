@@ -1,4 +1,4 @@
-#include "../../linerList/staticSequenceList.cpp"
+#include "../../linerList/sequenceList/staticSequenceList.cpp"
 #include <string.h> //包含memset
 /**
  * @file sequenceListHomework.cpp

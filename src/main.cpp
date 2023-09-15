@@ -1,7 +1,8 @@
 #include <stdio.h>
 // #include "../src/linerList/sequenceList/staticSequenceList.cpp"
 // #include "../src/linerList/sequenceList/dynamicSequenList.cpp"
-#include "../src/linerList/linkedList/singleList.cpp"
+// #include "../src/linerList/linkedList/singleList.cpp"
+#include "../src/linerList/linkedList/doubleLinkedList.cpp"
 using namespace std;
 // void testStaticSequenceList()
 // {
@@ -50,13 +51,19 @@ using namespace std;
 // 		printf("after Insert array index of %d,data is %d\n", i, L.data[i]);
 // 	}
 // }
-// 测试链表
-void testLinkedList()
+// 测试单链表
+// void testLinkedList()
+// {
+// 	LinkList L;
+// 	// 初始化一个空表
+// 	L = List_TailInsert(L);
+// 	printf("%d", Length(L));
+// }
+// 测试双链表
+void testDLinkList()
 {
-	LinkList L;
-	// 初始化一个空表
-	L = List_TailInsert(L);
-	printf("%d", Length(L));
+	DLinkList L;
+	InitDlinkList(L);
 }
 int main(int argc, char *argv[])
 {
@@ -64,6 +71,6 @@ int main(int argc, char *argv[])
 	// testStaticSequenceList();
 	// 测试动态顺序表
 	//  testDynamicSequenceList();
-	testLinkedList();
+	testDLinkList();
 	return 0;
 }

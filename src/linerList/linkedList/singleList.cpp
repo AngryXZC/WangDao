@@ -1,6 +1,5 @@
 #include "../../../include/linerList/linkedList/singleList.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 // 不带头节点
 bool InitListNoHeadNode(LinkList L)
 {

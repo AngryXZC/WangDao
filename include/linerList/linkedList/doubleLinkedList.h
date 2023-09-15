@@ -13,3 +13,5 @@ bool Empty(DLinkList L);
 bool InsertNextDNode(DNode *p, DNode *s);
 // Destroy a double LinkedList
 void DestroyList(DLinkList &L);
+// Delete the node after p node!
+bool DeleteNextDNode(DNode *p);

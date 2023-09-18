@@ -44,4 +44,4 @@ LinkList List_TailInsert(LinkList &L);
 // 头插法建立单链表
 LinkList List_HeadInsert(LinkList $L);
 // 删除P结点的后继结点
-bool DeleteNextDNode(DNode *p);
+bool DeleteNextDNode(LNode *p);

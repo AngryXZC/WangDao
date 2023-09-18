@@ -3,7 +3,7 @@
 /**
  * @file sequenceListHomework.cpp
  * @author xzc (xingzhicheng@imudges.com)
- * @brief 关于顺序表的一王道课后习题
+ * @brief 关于顺序表的一王道课后习题(2.2.3)
  * @version 0.1
  * @date 2023-07-25
  *

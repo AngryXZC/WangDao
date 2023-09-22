@@ -3,6 +3,7 @@
 typedef struct DNode
 {
     int data;
+    int freq; // 频度
     struct DNode *prior, *next;
 } DNode, *DLinkList;
 // 初始化双链表

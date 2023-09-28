@@ -13,7 +13,7 @@ bool QueueEmpty(SqQueue Q)
 }
 bool EnQueue(SqQueue &Q, int x)
 {
-    if ((Q.rear + 1) % MaxSize == Q.front) // 牺牲一个存储单元来判断堆满（区分队空的条件）
+    if ((Q.rear + 1) % MaxSize == Q.front) // 牺牲一个存储单元来判断队满（区分队空的条件）
         return false;
     Q.data[Q.rear] = x;
     Q.rear = (Q.rear + 1) % MaxSize;

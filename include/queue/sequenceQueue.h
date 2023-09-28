@@ -7,6 +7,7 @@ typedef struct
     // size++和--可以区分队列是满的还是空的
     // 或者使用tag区分是插入还是删除导致的两个指针相同
     int size;
+    int tag;
 } SqQueue;
 // 初始化队列
 void InitQueue(SqQueue &Q);

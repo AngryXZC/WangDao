@@ -1,4 +1,7 @@
-#define MAXLEN 255; // 预定义最大串长为255
+
+#include "stdlib.h"
+#include "stdio.h"
+#define MAXLEN 255 // 预定义最大串长为255
 typedef struct
 {
     char ch[MAXLEN];
@@ -19,7 +22,8 @@ typedef struct StringNode
 // 求长度
 int StrLength(SString S);
 // 截取字符串
-void SubString(SString &sub, SString S, int i, int m) int StrCompare(SString S, SString T);
+void SubString(SString &sub, SString S, int i, int m);
+int StrCompare(SString S, SString T);
 // 定位操作（其实就是朴素匹配算法）
 int Index(SString S, SString T);
 

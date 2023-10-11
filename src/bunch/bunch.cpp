@@ -2,7 +2,7 @@
 // 比较操作
 int StrCompare(SString S, SString T)
 {
-    for (int i = 0; i < = S.length && i <= T.length; i++)
+    for (int i = 0; i <= S.length && i <= T.length; i++)
     {
         if (S.ch[i] != T.ch[i])
             return S.ch[i] - T.ch[i];
@@ -11,7 +11,7 @@ int StrCompare(SString S, SString T)
 }
 int Index(SString S, SString T)
 {
-    int i = 1, n = StrLength(s), m = StrLength(T);
+    int i = 1, n = StrLength(S), m = StrLength(T);
     SString sub; // 暂存子串
     while (i <= n - m + 1)
     {
@@ -19,9 +19,13 @@ int Index(SString S, SString T)
         if (StrCompare(sub, T) != 0)
             ++i;
         else
-            return i // 返回子串在主串中的位置
+            return i; // 返回子串在主串中的位置
     }
     return 0; // S中不存在和T相等的子串
+}
+int StrLength(SString S)
+{
+    return S.length;
 }
 
 int IndexWithoutBaseOp(SString S, SString T)

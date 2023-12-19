@@ -11,6 +11,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "../queue/linkedQueue.h"
+#include "../stack/sequenceStack/sqStack.h"
 struct ElemType
 {
     int value;

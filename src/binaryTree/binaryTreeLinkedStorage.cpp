@@ -61,3 +61,48 @@ void LevelOrder(BiTree T)
             EnQueue(Q, p->rchild); // 右孩子入队
     }
 }
+
+// 非递归实现中序遍历
+void InOrder2(BiTree T)
+{
+    SqStack S;
+    InitStack(S);              // 初始化栈
+    BiTree p = T;              // P是遍历指针
+    while (p || StackEmpty(S)) // 栈不空P不空时循环
+    {
+        if (p) // 一路向左
+        {
+            Push(S, p->data); // 并入栈
+            p = p->lchild;    // 左孩子不空，一直向左走
+        }
+        else // 栈顶元素出栈，并转向出栈节点的右子树
+        {
+            Pop(S, p);
+            visit(p);      // 栈顶元素出栈 访问出栈节点
+            p = p->rchild; // 向右子树走，p赋值为当前结点的右子树
+        }                  // 返回while循环继续进入if-else语句
+    }
+}
+// 非递归实现先序遍历
+void PreOrder2(BiTree T)
+{
+    SqStack S;
+    InitStack(S);              // 初始化栈
+    BiTree p = T;              // P是遍历指针
+    while (p || StackEmpty(S)) // 栈不空P不空时循环
+    {
+        if (p) // 一路向左
+        {
+            visit(p);         // 访问当前节点
+            Push(S, p->data); // 并入栈
+            p = p->lchild;    // 左孩子不空，一直向左走
+        }
+        else // 栈顶元素出栈，并转向出栈节点的右子树
+        {
+            Pop(S, p);     // 栈顶元素出栈
+            p = p->rchild; // 向右子树走，p赋值为当前结点的右子树
+        }                  // 返回while循环继续进入if-else语句
+    }
+}
+// TODO
+// 后序遍历非递归实现

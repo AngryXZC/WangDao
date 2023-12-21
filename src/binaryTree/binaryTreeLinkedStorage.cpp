@@ -104,5 +104,33 @@ void PreOrder2(BiTree T)
         }                  // 返回while循环继续进入if-else语句
     }
 }
-// TODO
 // 后序遍历非递归实现
+void PostOrder2(BiTree T)
+{
+    SqStack S;
+    InitStack(S);
+    BiTNode *p = T, *r = NULL;
+    while (p || IsEmpty(S))
+    {
+        if (p)
+        { // 走到最左边
+            Push(S, p);
+            p = p->lchild;
+        }
+        else
+        {                 // 向右
+            GetTop(S, p); // 取栈顶元素
+            if (p->rchild && p->rchild != r)
+            {                  // 若右子树存在且未被访问
+                p = p->rchild; // 转向右
+            }
+            else
+            {
+                Pop(S, p); // 栈顶元素出栈
+                visit(p);  // 访问出栈节点
+                r = p;     // 记录最近访问过的节点
+                p = NULL;  // p置空，下次循环取栈顶元素
+            }
+        }
+    }
+}
